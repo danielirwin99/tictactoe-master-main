@@ -9,18 +9,19 @@ let gameOver = false;
 
 allSquares.forEach((square, i) => {
   square.addEventListener("click", () => {
-    if (gameOver || square.innerHTML) {
+    if (square.innerHTML || gameOver ) {
       return;
     }
     square.innerHTML = currentPlayer;
 
     board[i] = currentPlayer;
 
-    currentPlayer = currentPlayer === "X" ? "O" : "X";
+    
 
     if (checkWin()) {
       console.log("this runs");
       title.innerHTML = `${currentPlayer} Wins!`;
+
       gameOver = true;
       return;
     }
@@ -30,6 +31,8 @@ allSquares.forEach((square, i) => {
       gameOver = true;
       return;
     }
+
+    currentPlayer = currentPlayer === "X" ? "O" : "X";
 
     title.innerHTML = `${currentPlayer}'s Turn`;
   });
@@ -75,4 +78,16 @@ function checkWin() {
       return true;
     }
   }
+}
+
+function restartGame() {
+  title.innerHTML = `${currentPlayer}'s Turn`;
+
+  allSquares.forEach((square) => {
+    square.innerHTML = "";
+  });
+
+  board = new Array(9)
+
+  gameOver = false
 }

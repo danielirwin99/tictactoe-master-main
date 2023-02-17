@@ -71,7 +71,7 @@ allSquares.forEach((square, i) => {
 
 function checkDraw() {
   // Return false if the loop through the board DID NOT see any empty elements
-  for (i = 0; i < board.length; ++i) {
+  for (let i = 0; i < board.length; ++i) {
     if (!board[i]) {
       return false;
     }
