@@ -28,5 +28,9 @@
 .restart {
   padding: 12px 24px;
   font-size: 20px;
-  
+  cursor: pointer;
+}
+
+.restart:hover {
+  opacity: 0.8;
 }
